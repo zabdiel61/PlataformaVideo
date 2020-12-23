@@ -1,0 +1,6 @@
+{
+	"presets": [
+		"@babel/preset-env", //para trabajar con es5 y es6
+		"@babel/preset-react" // y otro para trabajar con jsx y react
+	]
+}

@@ -1,0 +1,15 @@
+npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-loader
+
+--INSTALACION DE WEB BACK
+npm install webpack webpack-cli html-webpack-plugin html-loader  --save-dev
+
+
+--Instalación de Webpack Dev Server:
+npm install --save-dev webpack-dev-server
+npm install -D webpack-dev-server
+
+--Instalación de Sass:
+npm install --save-dev mini-css-extract-plugin css-loader node-sass sass-loader
+
+--Instalación de ESLint:
+npm install --save-dev eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
