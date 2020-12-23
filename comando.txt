@@ -13,3 +13,25 @@ npm install --save-dev mini-css-extract-plugin css-loader node-sass sass-loader
 
 --Instalación de ESLint:
 npm install --save-dev eslint babel-eslint eslint-config-airbnb eslint-plugin-import eslint-plugin-react eslint-plugin-jsx-a11y
+
+
+
+--Instalar paquete para Webpack
+npm install file-loader --save-dev
+
+--Instalación de JSON Server:
+sudo npm install json-server -g
+```
+
+Recuerda que en Windows debes correr tu terminal de comandos en modo administrador.
+
+Ejecutar el servidor de JSON Server:
+
+```bash
+json-server archivoParaTuAPI.json
+
+----Logré correr el FakeAPI en Windows 10 con
+npx json-server --watch initialState.json
+
+--Instalación de PropTypes:
+npm install --save prop-types
