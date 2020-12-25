@@ -1,26 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import Header from '../components/Header';
+import React from 'react';
+import { connect } from 'react-redux';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-import Footer from '../components/Footer';
-import useInitialState from '../hooks/useInitialState';
 
 import '../assets/styles/App.scss';
 
-const API = 'http://localhost:3001/initalState';
-
-const App = () => {
-	const initialState = useInitialState(API);
-
-	return initialState.length === 0 ? (
-		<h1>Loading...</h1>
-	) : (
-		<div className="App">
-			<Header />
+const Home = ({ myList, trends, originals }) => {
+	return (
+		<>
 			<Search />
-			{initialState.mylist.length > 0 && (
+			{myList.length > 0 && (
 				<Categories title="Mi Lista">
 					<Carousel>
 						<CarouselItem />
@@ -30,7 +21,7 @@ const App = () => {
 
 			<Categories title="tendencias">
 				<Carousel>
-					{initialState.trends.map((item) => (
+					{trends.map((item) => (
 						<CarouselItem key={item.id} {...item} />
 					))}
 				</Carousel>
@@ -38,18 +29,24 @@ const App = () => {
 
 			<Categories title="Originals">
 				<Carousel>
-					{initialState.originals.map((item) => (
+					{originals.map((item) => (
 						<CarouselItem key={item.id} {...item} />
 					))}
 				</Carousel>
 			</Categories>
-
-			<Footer />
-		</div>
+		</>
 	);
 };
 
-export default App;
+const mapStateToProps = (state) => {
+	return {
+		myList: state.myList,
+		trends: state.trends,
+		originals: state.originals,
+	};
+};
+
+export default connect(mapStateToProps, null)(Home);
 
 /* Para los que quieran usar async/await en lugar de promesas, pude hacerlo 
 modificando el archivo .babelrc de esta manera: 
@@ -74,7 +71,7 @@ Por otro lado, useEffect no puede recibir una función asíncrona (porque no pue
 	useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const response = await fetch("http://localhost:3000/initialState");
+        const response = await fetch("http://localhost:3000/);
         const data = await response.json();
         return setVideos(data);
       } catch {
