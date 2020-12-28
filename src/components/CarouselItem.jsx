@@ -10,6 +10,7 @@ import removeIcon from '../assets/static/remove-icon.png';
 
 const CarouselItem = (props) => {
 	const { id, cover, title, year, contentRating, duration, isList } = props;
+
 	const handleSetFavorite = () => {
 		props.setFavorite({
 			id,
@@ -20,9 +21,11 @@ const CarouselItem = (props) => {
 			duration,
 		});
 	};
+
 	const handleDeleteFavorite = (itemId) => {
 		props.deleteFavorite(itemId);
 	};
+
 	return (
 		<div className="carousel-item">
 			<img className="carousel-item__img" src={cover} alt={title} />
@@ -35,6 +38,7 @@ const CarouselItem = (props) => {
 							alt="Play Icon"
 						/>
 					</Link>
+
 					{isList ? (
 						<img
 							className="carousel-item__details--img"

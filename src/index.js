@@ -21,7 +21,8 @@ const initialState = {
 			duration: 164,
 			cover: 'http://dummyimage.com/800x600.png/99118E/ffffff',
 			description: 'Vestibulum ac est lacinia nisi venenatis tristique',
-			source: 'https://mdstrm.com/video/58333e214ad055d208427db5.mp4',
+			source:
+				'https://www.youtube.com/watch?v=p30rc_-bTLs&list=RDp30rc_-bTLs&start_radio=1',
 		},
 		{
 			id: 3,

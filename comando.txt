@@ -129,3 +129,15 @@ Esta clase se me complico mucho, por eso les dejo algunos principios de redux qu
 Mas información la pueden encontrar en https://es.redux.js.org/
 
 
+-----------------Creando un Servicio para Gravata
+Muchas veces la mejor opción no es descargar un paquete de npm ya que podemos ver la documentación, entender cómo funciona y nosotros implementar el código necesario para nuestro caso, ya que instalar todo el paquete puede volver más pesado nuestro proyecto.
+
+Para nuestro servicio que llamará a Gravatar vamos a crear la carpeta utils y dentro añadir el archivo gravatar.js.
+
+npm install md5 --
+
+
+
+
+
+Como sugerencia, yo prefiero usar Formik con Yup para formularios, y ya si es necesario mando un formValues a redux …
