@@ -141,3 +141,51 @@ npm install md5 --
 
 
 Como sugerencia, yo prefiero usar Formik con Yup para formularios, y ya si es necesario mando un formValues a redux …
+
+---------------INSTALAR VALIDADES O PAQUETE PARA eso
+npm install classnames --save
+
+
+
+-------------------------------Debug con Redux Devtools
+Redux Dev Tools nos va a servir mucho para entender mejor el flujo de nuestra información en nuestra aplicación y poder realizar debugging de manera sencilla.
+
+Solamente necesitas instalar la extensión según el navegador que tengas:
+
+Chrome
+Firefox
+Una vez instalado dentro de nuestro index.js vamos a añadir el siguiente código:
+
+
+// importamos compose  
+import { createStore, compose } from ‘redux’;  
+...  
+  
+  
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  
+  
+const store = createStore(reducer, initialState, composeEnhancers  
+
+
+
+Reto solucionado:
+
+Dentro del JSON que se encuentra en index.js puse un array con todo el contenido: content.
+Generé un action con el nombre searchVideo y un reducer con SEARCH_VIDEO.
+Dentro del reducer hice (la búsqueda se hace en minúsculas para hacerlo insensitive case):
+if (action.payload === '') {
+        return {
+          ...state,
+          search: [],
+        };
+      }
+      return {
+        ...state,
+        search: state.content.filter((items) => items.title.toLowerCase().includes(action.payload.toLowerCase())) ||
+          [],
+      };
+En Search añadí los componentes de Categories, Carousel, CarouselItem para hacer el render de los resultados.
+En Search vincule la acción para obtener los resultados
+Hice un handleInput para capturar el valor del input cada que hay un cambio en el valor.
+Dejo mi repositorio para mejor referencia:
+https://github.com/manuelojeda/escuela-js-platzi-video/tree/feature/router-redux

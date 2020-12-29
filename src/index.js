@@ -1,7 +1,7 @@
 import React from 'react';
 import ReacDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import reducer from './reducers';
 import App from './routes/App';
 
@@ -182,7 +182,10 @@ mapStateToProps: es una función que le va a indicar al provider qué informaci�
 necesitamos del store.
 mapDispatchToProps: es un objeto con las distintas funciones para ejecutar una 
 action en Redux. */
-const store = createStore(reducer, initialState);
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, initialState, composeEnhancers());
 
 //render recibe 2 parametros principalmente
 //uno es el componente y el otro donde se empujara este componente
